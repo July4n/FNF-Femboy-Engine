@@ -13,6 +13,9 @@ import flixel.util.FlxTimer;
 
 class FlashingState extends MusicBeatState
 {
+
+        blackScreen = new FlxSprite(0, 0).loadGraphic(Paths.image('lindo'));
+		add(blackScreen);
 	public static var leftState:Bool = false;
 
 	var warnText:FlxText;
@@ -25,13 +28,8 @@ class FlashingState extends MusicBeatState
 
 		#if android
 		warnText = new FlxText(0, 0, FlxG.width,
-			"Hey, watch out!\n
-			Be careful when you touch the phone fast!\n
-			You can break your phone screen if you do that,also\n
-			This Mod contains some flashing lights!\n
-			Press A to disable them now or go to Options Menu.\n
-			Press B to ignore this message.\n
-			You've been warned!",
+			"Esta Verga tiene Luces
+                        Presiona "A" Si Te Vale Verga!",
 			32);
 		#else
 		warnText = new FlxText(0, 0, FlxG.width,
