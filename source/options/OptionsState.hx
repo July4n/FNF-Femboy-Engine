@@ -29,6 +29,9 @@ using StringTools;
 
 class OptionsState extends MusicBeatState
 {
+
+        FlxG.sound.playMusic(Paths.music('OptionMenu'), 0.8);
+
 	var options:Array<String> = ['Note Colors', 'Controls', 'Adjust Delay and Combo', 'Graphics', 'Visuals and UI', 'Gameplay'];
 	private var grpOptions:FlxTypedGroup<Alphabet>;
 	private static var curSelected:Int = 0;
@@ -74,8 +77,9 @@ class OptionsState extends MusicBeatState
 		DiscordClient.changePresence("Options Menu", null);
 		#end
 
-		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
-		bg.color = 0xFFea71fd;
+		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('options bg'));
+		bg.color = FFFFFFF
+ ;
 		bg.updateHitbox();
 
 		bg.screenCenter();
@@ -99,7 +103,7 @@ class OptionsState extends MusicBeatState
 		add(selectorRight);
 
 		#if android
-		var tipText:FlxText = new FlxText(10, FlxG.height - 24, 0, 'Press C to customize your android controls', 16);
+		var tipText:FlxText = new FlxText(10, FlxG.height - 24, 0, 'Presiona C Para Entrar a Android Controls', 16);
 		tipText.setFormat(Paths.font('vcr.ttf'), 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		tipText.borderSize = 2.4;
 		tipText.scrollFactor.set();
