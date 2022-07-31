@@ -70,6 +70,16 @@ class ModsMenuState extends MusicBeatState
 
 	override function create()
 	{
+
+
+		if(FlxG.sound.music == null) {
+		FlxG.sound.playMusic(Paths.music('breakfast'), 0);
+
+                FlxG.sound.music.fadeIn(4, 0, 0.7);
+		}
+	}
+
+
 		Paths.clearStoredMemory();
 		Paths.clearUnusedMemory();
 		WeekData.setDirectoryFromWeek();
@@ -84,7 +94,7 @@ class ModsMenuState extends MusicBeatState
 		add(bg);
 		bg.screenCenter();
 
-		noModsTxt = new FlxText(0, 0, FlxG.width, "NO MODS INSTALLED\nPRESS BACK TO EXIT AND INSTALL A MOD", 48);
+		noModsTxt = new FlxText(0, 0, FlxG.width, "NO TENES MODS/INSTALATE MODS ALA VERGA ", 48);
 		if(FlxG.random.bool(0.1)) noModsTxt.text += '\nBITCH.'; //meanie
 		noModsTxt.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		noModsTxt.scrollFactor.set();
@@ -100,7 +110,7 @@ class ModsMenuState extends MusicBeatState
 			for (i in 0...leMods.length)
 			{
 				if(leMods.length > 1 && leMods[0].length > 0) {
-					var modSplit:Array<String> = leMods[i].split('|');
+					var modSplit:Array<String> = leMods[i].split(' BfBg');
 					if(!Paths.ignoreModFolders.contains(modSplit[0].toLowerCase()))
 					{
 						addToModsList([modSplit[0], (modSplit[1] == '1')]);
