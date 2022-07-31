@@ -39,6 +39,7 @@ class CreditsState extends MusicBeatState
 
 	override function create()
 	{
+
 		#if desktop
 		// Updating Discord Rich Presence
 		DiscordClient.changePresence("In the Menus", null);
@@ -47,8 +48,20 @@ class CreditsState extends MusicBeatState
 		persistentUpdate = true;
 		bg = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
 		add(bg);
-		bg.screenCenter();
+		bg.screenCenter(); 
+
+                chess = new FlxBackdrop(Paths.image('Pausa/bfitos'), 0, 0, true, false);
+		chess.y -= 80;
+		add(chess);
 		
+		chess.offset.x -= 0;
+		chess.offset.y += 0;
+		chess.velocity.x = 20;
+
+                fernanda = new FlxSprite().loadGraphic(Paths.image('Pausa/Blanco'));
+		fernanda.antialiasing = ClientPrefs.globalAntialiasing;
+		add(fernanda);	
+	
 		grpOptions = new FlxTypedGroup<Alphabet>();
 		add(grpOptions);
 
@@ -81,28 +94,12 @@ class CreditsState extends MusicBeatState
 		#end
 
 		var pisspoop:Array<Array<String>> = [ //Name - Icon name - Description - Link - BG Color
-			['Android Support'],
-			['Saw (M.A. Jigsaw)',	'jigsaw',				'Main Programmer of Psych Engine\nWith Android Support',	'https://www.youtube.com/channel/UC2Sk7vtPzOvbVzdVTWrribQ', 	'444444'],
-			['Goldie',				'goldie',			'Virtual Pad Artist',										'https://www.youtube.com/channel/UCjTi9Hfl1Eb5Bgk5gksmsbA', 	'444444'],
-			['Join our Discord!',	'discord',			'If you dare...',											'https://discord.gg/42bGcJG26x', 								'5165F6'],
+			['FemBoy Engine'],
+			['Julyan',	'Julyan',				'Main Femboy ',	'https://youtube.com/channel/UCNAe-mX-I647TGBFs4dhUmw', 	'FFCDCDCD'],
 			[''],
-			['Psych Engine Team'],
-			['Shadow Mario',		'shadowmario',		'Main Programmer of Psych Engine',								'https://twitter.com/Shadow_Mario_',	'444444'],
-			['RiverOaken',			'river',			'Main Artist/Animator of Psych Engine',							'https://twitter.com/RiverOaken',		'B42F71'],
-			['shubs',				'shubs',			'Additional Programmer of Psych Engine',						'https://twitter.com/yoshubs',			'5E99DF'],
-			[''],
-			['Former Engine Members'],
-			['bb-panzu',			'bb',				'Ex-Programmer of Psych Engine',								'https://twitter.com/bbsub3',			'3E813A'],
-			[''],
-			['Engine Contributors'],
-			['iFlicky',				'flicky',			'Composer of Psync and Tea Time\nMade the Dialogue Sounds',		'https://twitter.com/flicky_i',			'9E29CF'],
-			['SqirraRNG',			'sqirra',			'Crash Handler and Base code for\nChart Editor\'s Waveform',	'https://twitter.com/gedehari',			'E1843A'],
-			['PolybiusProxy',		'proxy',			'.MP4 Video Loader Library (hxCodec)',							'https://twitter.com/polybiusproxy',	'DCD294'],
-			['KadeDev',				'kade',				'Fixed some cool stuff on Chart Editor\nand other PRs',			'https://twitter.com/kade0912',			'64A250'],
-			['Keoiki',				'keoiki',			'Note Splash Animations',										'https://twitter.com/Keoiki_',			'D2D2D2'],
-			['Nebula the Zorua',	'nebula',			'LUA JIT Fork and some Lua reworks',							'https://twitter.com/Nebula_Zorua',		'7D40B2'],
-			['Smokey',				'smokey',			'Sprite Atlas Support',											'https://twitter.com/Smokey_5_',		'483D92'],
-			[''],
+                        ["Agradecimientos"],
+			['Psych Engine Team',		'psych',	"Me Base En Este engine para hacer este",							'https://gamebanana.com/mods/309789',	'FD99FC'],
+			['PhantomArcade',
 			["Funkin' Crew"],
 			['ninjamuffin99',		'ninjamuffin99',	"Programmer of Friday Night Funkin'",							'https://twitter.com/ninja_muffin99',	'CF2D2D'],
 			['PhantomArcade',		'phantomarcade',	"Animator of Friday Night Funkin'",								'https://twitter.com/PhantomArcade3K',	'FADC45'],
